@@ -1,0 +1,135 @@
+Different notebook specified, starting new conversation...
+Continuing conversation bc76f9d4...
+Answer:
+依據《Claude Code 架構師指南》書中內容，針對 **第 20 章至第 22 
+章**（包含第五部分「實戰案例」與第六部分「發布、團隊採納與市集」）的「讀者實際動
+手操作」逐章整理如下：
+
+---
+
+### 📖 第 20 章：實務案例：建構全棧開發環境（Case Study: Building a Full-Stack 
+Development Environment）
+
+*   **(a) 操作步驟與指令** [1, 2]：
+    *   **核心實務案例（Senior Engineer @ Small Product Company）** 
+[2]：本章為全系統組合實踐篇，引導讀者將前文介紹的 **Skills、Subagents、Hooks** 
+三大支柱組合成一套自動運作的全棧（Full-Stack）開發環境 [2, 3]。
+    *   **要建立的檔案與架構重點**：
+        1.  **專案層級 `.claude/` 版控目錄** 
+[4]：於專案根目錄下建立完整三支柱結構檔。
+        2.  **全棧常規說明檔（`CLAUDE.md`）** 
+[5]：位於專案根目錄，記載全專案常駐資訊（如 TypeScript Strict 
+Mode、Next.js/Node.js 鐵律、Vitest 測試規則與 Conventional Commits 格式）[4, 
+6]。
+        3.  **專案專用技能（Skills）**：放於 `.claude/skills/` [5]：
+            *   `scaffold-feature`（多檔案技能，含 `assets/` 模板檔與 
+`references/` 命名約定）：自動生成跨前端 UI、API Route 與資料庫存取層的腳手架 
+[7-9]。
+            *   `db-migration`：專門處理資料庫 Schema 變更與安全的 Migration 
+腳本撰寫。
+        4.  **領域專家子代理（Subagents）**：放於 `.claude/agents/` [5]：
+            *   `security-auditor.md`（Model: `opus`, Tools: `Read, Grep, 
+Glob`）：平行檢查全棧 API 端點與認證邏輯之安全漏洞 [10, 11]。
+            *   `test-writer.md`（Model: `sonnet`, Tools: `Read, Write, 
+Bash`）：專門編寫跨單元與整合測試案例 [12, 13]。
+        5.  **確定性護航掛鉤（Hooks）**：設定於 `.claude/settings.json` [5]：
+            *   `PreToolUse` (Gate)：阻斷對 `.env` 或生產環境設定檔的直接修改 
+[14, 15]。
+            *   `PostToolUse` (Guard)：檔案寫入後自動執行 `npx prettier` 與 `npx
+eslint --fix` [16, 17]。
+    *   **CLI 指令與操作**：
+        *   開啟終端機並啟動 Session：`claude` [18]。
+        *   輸入自然語言提示（如：「`add a new user profile API endpoint with 
+full tests`」），觀察環境自動調用 Skill 生成腳手架、派發平行 Subagent 
+撰寫測試與檢測安全性，並由 Hook 執行寫入後 Format 與門控檢查 [19-21]。
+*   **(b) 範例專案或 GitHub 
+網址**：**無**（書中範例皆直接印製於章節內文中，未提供外部 GitHub 
+代碼庫連結）[2]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Node.js / TypeScript 
+全棧開發環境、Git 版本控制系統、純文字編輯器/IDE [2, 4, 6]。
+
+---
+
+### 📖 第 21 章：實務案例：一人技術創業者的 Claude Code 設定（Case Study: The 
+Solo Technical Founder's Claude Code Setup）
+
+*   **(a) 操作步驟與指令** [1, 2]：
+    *   **核心實務案例（Solo SaaS Founder）** [2]：展示一人創業者如何透過單一 
+Claude Code 安裝環境，自動化處理開發、維運、產品規劃、文案撰寫與客戶支援 [2]。
+    *   **要建立的檔案與架構重點**：
+        1.  **跨領域個人技能圖書館（Skills）**：放於全域 `~/.claude/skills/` [4,
+22]：
+            *   `marketing-copy` / `humanize-text`：撰寫文案、電子報或 Landing 
+Page，並潤飾過於僵硬的機器風格。
+            *   `customer-support`：解析客戶回報與錯誤日誌，生成標準排障指南。
+            *   `feature-spec` / `decision-log`：將想法轉化為產品規格書與 ADR 
+決策紀錄 [23]。
+        2.  **領域專家子代理（Subagents）**：放於 `~/.claude/agents/` [4, 10]：
+            *   `devops-specialist.md`：專門審查 Docker、CI/CD 
+與基礎設施部署腳本。
+            *   
+`architecture-reviewer.md`：高階架構評估，確保一人快速迭代時不累積惡性技術債 
+[12, 24]。
+        3.  **自動化生命週期事件管線（Hooks Pipeline）**：設定於 
+`~/.claude/settings.json` 或 `.claude/settings.local.json` [5, 15]：
+            *   `SessionStart`：自動讀取 `.claude/today.txt` 
+當日工作焦點檔並注入 Context [25, 26]。
+            *   `PostToolUse`：對編輯檔案進行非同步時間戳備份（存放於 
+`.backups/`）[26, 27]。
+            *   `SessionEnd`：自動更新 `journal.md` 日誌，記錄今日變更與處理事項
+[26, 28]。
+    *   **CLI 指令與操作**：
+        *   開啟 Terminal 並執行 `claude` 啟動 Session [18]。
+        *   使用 `@devops-specialist` 顯式派發部署審查，或使用斜線指令 `/agents`
+與 `/hooks` 檢視並診斷目前生效的系統配置 [12, 29]。
+*   **(b) 範例專案或 GitHub 網址**：**無** [2]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Terminal 終端機、Git 
+版本控制系統、個人 SaaS 專案目錄 [2, 4]。
+
+---
+
+### 📖 第 22 章：分發、團隊採納與 Claude Code 市集（Distribution, Team Adoption,
+and the Claude Code Marketplace）
+
+*   **(a) 操作步驟與指令** [1, 2]：
+    *   **核心操作/步驟**：
+        1.  **團隊級分發與版控（Team Distribution & Adoption）**：
+            *   將專案根目錄下的 `.claude/` 目錄（包含 
+`skills/`、`agents/`、`settings.json`）完全提交至 Git 遠端倉庫 [4, 23]。
+            *   團隊新成員 clone 倉庫後，第一次啟動 Claude Code 
+即可**自動無縫繼承**整套團隊技能、專家子代理與安全門控，無需手動設定或 
+onboarding 培訓 [4, 23]。
+        2.  **設定套件與 Plugin 分發（Configuration Packs & Plugins）**：
+            *   將通用技能、子代理與 Hook 腳本打包為獨立的設定包（Configuration 
+Pack），透過公司內部倉庫或未來 Claude Code Marketplace 進行散播與共享 [2, 20]。
+        3.  **季度稽核與長期演進（Quarterly Audit & Evolution）**：
+            *   定期對團隊技能庫執行季度審查，對比 Description 
+與實作內容，修正過寬/過窄的觸發語詞（Under-firing / 
+False-triggering），並淘汰超過 3 個月未使用的過時技能 [30, 31]。
+    *   **要建立的檔案與設定重點**：
+        *   
+`.claude/skills/README.md`：編寫團隊技能開發規範與撰寫風格手冊（House Style 
+Guide）[32]。
+        *   `.claude/settings.json`：團隊共享的強制性安全與格式化規則 [4]。
+        *   `.claude/settings.local.json`：個人專屬、不納入 Git 版控（需列入 
+`.gitignore`）的個人習慣 Hook [15]。
+    *   **CLI 指令**：
+        ```bash
+        # 團隊版控提交指令
+        git add .claude/
+        git commit -m "chore: add team claude code environment pack"
+        git push origin main
+        ```
+        新成員只需執行 `git clone <repo-url>` 並啟動 `claude` 即可自動載入 [4, 
+23]。
+*   **(b) 範例專案或 GitHub 網址**：**無** [2]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Git 遠端倉庫（如 GitHub / 
+GitLab / Bitbucket）、團隊協同軟體（如 Slack）[2, 4, 23]。
+
+---
+
+💡 至此，本書全 22 章的實戰操作步驟已完整為您梳理完畢！若您需要針對特定的 
+**Skill SKILL.md、Subagent .md 檔或 Hook JSON 配置腳本** 
+取得進一步的完整程式碼範例，隨時告訴我！
+
+Resumed conversation: bc76f9d4-aa14-4e6a-ab8f-1138886816a2

@@ -1,0 +1,206 @@
+Different notebook specified, starting new conversation...
+Continuing conversation bc76f9d4...
+Answer:
+依據《Claude Code 架構師指南》書中內容，針對 **第 11 章至第 15 章** 
+的「讀者實際動手操作」事項逐章整理如下：
+
+---
+
+### 📖 第 11 章：給 AI 子代理越少能力越強大（Designing Effective Subagents: 
+Role, Tools, and Boundaries）
+
+*   **(a) 操作步驟與指令**：
+    *   
+**三維度設計原則**：建立專用子代理時，必須嚴格鎖定三大維度：**角色（Role）**、**
+工具限制（Tools）** 與 **邊界（Boundary）** [1]。
+    *   **要建立的檔案與 Frontmatter / Body 重點**：
+        1.  **安全審查員**（檔名：`~/.claude/agents/security-auditor.md`）[2]：
+            *   *Frontmatter*：`name: security-auditor`，`description: Audits 
+code for security issues, including OWASP Top 
+10...`（註明於變更認證或資料處理時主動使用），`tools: Read, Grep, Glob, 
+Bash`，`model: opus`（高推理需求選擇 Opus）[2]。
+            *   *Body 重點*：定義資深應用安全工程師身份；編號列出驗證方法；加入 
+`What you do not do` 
+區塊（嚴禁修改程式碼、不進行一般程式風格審查、無漏洞時一句話總結、不憑空編造）[2
+, 3]。
+        2.  
+**技術文件作家**（檔名：`~/.claude/agents/documentation-writer.md`）[4]：
+            *   *Frontmatter*：`name: documentation-writer`，`tools: Read, 
+Write, Glob, Grep`（允許寫入文件），`model: sonnet` [4]。
+            *   *Body 重點*：強調說明「Why」而非「What」；`What you do not do` 
+嚴禁修改程式碼、不寫直譯式英文、不編造行為 [4, 5]。
+    *   **三次輸入測試（Three-Input Test）**：子代理建立後，準備 3 
+種不同輸入進行測試，比對輸出格式、語調與細節是否一致，用以驗證 Prompt 的穩定度 
+[6]。
+    *   **CLI 指令**：
+        ```bash
+        mkdir -p ~/.claude/agents
+        # 建立並撰寫 security-auditor.md 與 documentation-writer.md
+        ```
+        開啟 `claude` 並輸入 `@security-auditor` 或 `@documentation-writer` 
+進行手動調用與測試 [7]。
+*   **(b) 範例專案或 GitHub 網址**：**無**。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Terminal 終端機、文字編輯器。
+
+---
+
+### 📖 第 12 章：平行子代理精準抓出程式漏洞（Parallel Subagents and the 
+Orchestrator Pattern）
+
+*   **(a) 操作步驟與指令**：
+    *   **三大多代理架構模式**：
+        1.  *協調者模式（Orchestrator Pattern）*：主 Session 
+擔任指揮家，將多維度獨立任務同時派發給多個子代理平行執行，最後由主 Session 
+進行綜合呈報 [8, 9]。
+        2.  *順序管線模式（Sequential Pipeline）*：前後步驟有相依性（如先由 
+`architecture-reviewer` 評估後再交由 `refactor-specialist` 執行）[10]。
+        3.  *Map-Reduce 模式*：平行子代理讀取不同區塊，最後由 Synthesis 
+子代理產出單一架構文件 [10, 11]。
+    *   **要建立的檔案**：
+        在 `.claude/agents/` 或 `~/.claude/agents/` 中設置 4 
+位平行審查專家：`security-auditor.md`、`performance-reviewer.md`、`code-style-ch
+ecker.md`（或 `style-reviewer`）與 `test-coverage-analyzer.md`（或 
+`test-coverage-checker`）[9, 12]。
+    *   **CLI 指令與操作**：
+        開啟 `claude` 並於 Pull Request 審查時輸入自然語言觸發：
+        ```
+        perform a full review of this PR covering security, performance, style, 
+and test coverage
+        ```
+        主 Session 會自動識別並同時派發 4 個專屬子代理，於約 2 
+分鐘內整合呈現四維度審查報告 [12, 13]。
+*   **(b) 範例專案或 GitHub 網址**：**無**。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Git 版本控制系統（具備分支 
+diff 或 PR 環境）。
+
+---
+
+### 📖 第 13 章：Git 裡的八位 AI 專家（The Subagent Library: Eight Specialists 
+Every Developer Needs）
+
+*   **(a) 操作步驟與指令**：
+    *   **核心操作/步驟**：
+        在全域目錄 `~/.claude/agents/` 下建置 8 位專用子代理 Markdown 檔案 
+[14]：
+        1.  `security-auditor.md`（Model: `opus`, Tools: `Read, Grep, Glob, 
+Bash`）：專攻安全漏洞與 OWASP 審查 [2]。
+        2.  `performance-reviewer.md`（Model: `sonnet`, Tools: `Read, Grep, 
+Glob, Bash`）：專攻演算法複雜度、N+1 查詢與同步 I/O 瓶頸 [15]。
+        3.  `test-writer.md`（Model: `sonnet`, Tools: `Read, Write, Bash, 
+Glob`）：自動偵測測試框架並編寫包含正常/邊界/錯誤測試檔 [16]。
+        4.  `documentation-writer.md`（Model: `sonnet`, Tools: `Read, Write, 
+Glob, Grep`）：專攻 README、API 與 JSDoc 文件更新 [4, 17]。
+        5.  `architecture-reviewer.md`（Model: `opus`, Tools: `Read, Grep, 
+Glob`）：評估單一職責、模組耦合與分層架構 [18]。
+        6.  `refactor-specialist.md`（Model: `sonnet`, Tools: `Read, 
+Edit`）：在完全不改變行為前提下提升可讀性或可測試性 [19]。
+        7.  `dependency-analyzer.md`（Model: `sonnet`, Tools: `Read, Grep, Glob,
+Bash`）：檢查過時、漏洞、未使用的套件 [20]。
+        8.  `migration-planner.md`（Model: `opus`, Tools: `Read, Grep, 
+Glob`）：制定漸進式技術轉移與 Rollback 計畫 [21]。
+    *   **CLI 指令**：
+        ```bash
+        mkdir -p ~/.claude/agents
+        # 建立與編輯上述 8 個 .md 檔
+        ```
+        在 Claude Code 對話中輸入斜線指令 
+`/agents`，開啟互動式介面檢視所有已安裝子代理 [22]。
+*   **(b) 範例專案或 GitHub 網址**：**無**。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Git 
+版本控制系統、純文字編輯器。
+
+---
+
+### 📖 第 14 章：子代理與技能組合模式（Subagents and Skills: The Composition 
+Pattern）
+
+*   **(a) 操作步驟與指令**：
+    *   **組合架構原則（Composition Principle）**：
+        *   **職責分離**：子代理（Subagent）負責提供「通用專業角色與獨立 Context
+Window」；技能（Skill）負責提供「專案專屬規範與知識」[23-26]。
+        *   **自動載入**：當子代理被派發時，若其任務匹配專案技能的 
+Description，子代理會在自己的獨立 Context 中自動觸發並載入該 Skill [27]。
+    *   **要建立的檔案與組合實例**：
+        1.  *測試組合*：全域子代理 `~/.claude/agents/test-writer.md` 
+搭配專案技能 `.claude/skills/test-conventions/SKILL.md`（約定測試檔案結構與 mock
+規範）[23, 27]。
+        2.  *安全組合*：全域子代理 `~/.claude/agents/security-auditor.md` 
+搭配專案技能 `.claude/skills/auth-conventions/SKILL.md`（約定專案認證 Token 
+機制）[24]。
+        3.  *文件組合*：全域子代理 `~/.claude/agents/documentation-writer.md` 
+搭配專案技能 `.claude/skills/doc-style-guide/SKILL.md`（團隊寫作風格指引）[28]。
+    *   **團隊共享做法**：將 `.claude/` 目錄版控至 Git 
+倉庫，成員複製專案時即自動享有團隊的組合效果 [29]。
+    *   **CLI 指令**：於 Claude Code 輸入 `@test-writer write tests for 
+auth.ts`，觀察子代理自動加載專案內對應技能。
+*   **(b) 範例專案或 GitHub 網址**：**無**。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Git 專案倉庫。
+
+---
+
+### 📖 第 15 章：用 Hooks 終結 AI 的機率性失誤（Hooks Fundamentals: 
+Deterministic Behavior in a Probabilistic System）
+
+*   **(a) 操作步驟與指令**：
+    *   **核心概念與層級**：Hook 為外掛於 LLM 之 Shell 
+指令，於指定生命週期事件強制觸發 [30, 31]。設定檔可設於全域 
+`~/.claude/settings.json`、專案 `.claude/settings.json`，或個人不納入版控的 
+`.claude/settings.local.json` [31, 32]。
+    *   **要建立的檔案與 JSON 設定重點**：
+        1.  **PostToolUse 格式化 Guard**：於寫入檔案後自動執行 Prettier 格式化 
+[33, 34]：
+            ```json
+            {
+              "hooks": {
+                "PostToolUse": [
+                  {
+                    "matcher": "Edit|Write",
+                    "hooks": [
+                      {
+                        "type": "command",
+                        "command": "npx prettier --write 
+\"$CLAUDE_TOOL_INPUT_FILE_PATH\""
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+            ```
+        2.  **PreToolUse 安全 Gate**：阻止修改敏感 `.env` 檔（Exit Code `2` 
+進行硬性阻斷，將 stderr 反饋給 Claude）[35, 36]：
+            ```json
+            {
+              "hooks": {
+                "PreToolUse": [
+                  {
+                    "matcher": "Edit|Write",
+                    "hooks": [
+                      {
+                        "type": "command",
+                        "command": "jq -e '.tool_input.file_path | 
+test(\"\\\\.env$\")' > /dev/null && { echo 'Editing .env files is not allowed.' 
+>&2; exit 2; } || exit 0"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+            ```
+    *   **CLI 指令與除錯**：
+        *   在 Claude Code 中輸入 `/hooks` 開啟互動式編輯器與檢驗介面 [22]。
+        *   使用 `/doctor` 診斷配置錯誤 [22]。
+        *   **重啟生效**：新增或修改 Hook 設定後，**必須重啟 Claude Code 
+Session**（重新執行 `claude`）新 Hook 才會生效 [22]。
+*   **(b) 範例專案或 GitHub 網址**：**無**。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Node.js / npm（供 `npx 
+prettier` 使用）[37]、`jq` 命令列工具（供 JSON 解析使用）[36]。
+
+---
+
+💡 想繼續了解 **第 16 章至第 18 章**（Gates/Guards/Notifiers 
+設計模式、五大安全掛鉤腳本以及 Hook 事件管線鏈）的實際操作步驟與 Bash 
+腳本撰寫嗎？
+
+Resumed conversation: bc76f9d4-aa14-4e6a-ab8f-1138886816a2

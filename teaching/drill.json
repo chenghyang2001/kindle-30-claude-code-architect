@@ -1,0 +1,170 @@
+{
+  "book": "K30",
+  "repo": "kindle-30-claude-code-architect",
+  "title": "Claude Code Architect",
+  "prompt_source": "teaching/LESSON-PLAN.md",
+  "chapters": [
+    {
+      "id": "01",
+      "folder": "k30-ch01-practice",
+      "mode": "normal",
+      "minutes": 3,
+      "parallel_with": [],
+      "note": "概念章"
+    },
+    {
+      "id": "02",
+      "folder": "k30-ch02-practice",
+      "mode": "normal",
+      "minutes": 4,
+      "parallel_with": []
+    },
+    {
+      "id": "03",
+      "folder": "k30-ch03-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    },
+    {
+      "id": "04",
+      "folder": "k30-ch04-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    },
+    {
+      "id": "05",
+      "folder": "k30-ch05-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "06",
+      "folder": "k30-ch06-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "07",
+      "folder": "k30-ch07-practice",
+      "mode": "normal",
+      "minutes": 8,
+      "parallel_with": [],
+      "note": "scaffold-react 模板，用 node 驗證輸出"
+    },
+    {
+      "id": "08",
+      "folder": "k30-ch08-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "09",
+      "folder": "k30-ch09-practice",
+      "mode": "normal",
+      "minutes": 8,
+      "parallel_with": []
+    },
+    {
+      "id": "10",
+      "folder": "k30-ch10-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    },
+    {
+      "id": "11",
+      "folder": "k30-ch11-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": []
+    },
+    {
+      "id": "12",
+      "folder": "k30-ch12-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "13",
+      "folder": "k30-ch13-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "14",
+      "folder": "k30-ch14-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "15",
+      "folder": "k30-ch15-practice",
+      "mode": "isolated",
+      "minutes": 6,
+      "parallel_with": [],
+      "note": "isolated：觀察 hook"
+    },
+    {
+      "id": "16",
+      "folder": "k30-ch16-practice",
+      "mode": "isolated",
+      "minutes": 6,
+      "parallel_with": [],
+      "note": "isolated"
+    },
+    {
+      "id": "17",
+      "folder": "k30-ch17-practice",
+      "mode": "isolated",
+      "minutes": 8,
+      "parallel_with": [],
+      "note": "isolated"
+    },
+    {
+      "id": "18",
+      "folder": "k30-ch18-practice",
+      "mode": "isolated",
+      "minutes": 6,
+      "parallel_with": [],
+      "note": "isolated"
+    },
+    {
+      "id": "19",
+      "folder": "k30-ch19-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": []
+    },
+    {
+      "id": "20",
+      "folder": "k30-ch20-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": []
+    },
+    {
+      "id": "21",
+      "folder": "k30-ch21-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": [],
+      "note": "書上放全域，改專案層"
+    },
+    {
+      "id": "22",
+      "folder": "k30-ch22-practice",
+      "mode": "normal",
+      "minutes": 6,
+      "parallel_with": [],
+      "note": "plugin 只做本機 marketplace，安裝後移除"
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+Different notebook specified, starting new conversation...
+Continuing conversation bc76f9d4...
+Answer:
+依據《Claude Code 架構師指南》書中內容，針對 **第 6 章至第 10 章** 
+的「讀者實際動手操作」逐章整理如下：
+
+---
+
+### 📖 第 6 章：技能描述工程（Skill Description Engineering: The Art of 
+Triggering）
+
+*   **(a) 操作步驟與指令**：
+    *   **核心操作/步驟**：
+        1.  **設計四段式 Description 結構**：為每個技能的 YAML Frontmatter 
+撰寫兼具精準度與覆蓋面之 `description`，包含：
+            *   *標準陳述（Canonical Statement）*：以 12–20 
+字精準說明技能核心功能 [1]。
+            *   *觸發用語（Trigger 
+Language）*：列舉使用者實務上會使用的動詞、名詞與縮寫語句 [2]。
+            *   *邊界用語（Boundary 
+Language）*：明確界定「不適用」情境，避免與相鄰技能發生觸發衝突 [2]。
+            *   *輸入預期（Input 
+Expectation）*：說明技能執行的環境假設（如：假設 Git 中已有 staged 變更）[3]。
+        2.  **執行雙向驗證測試**：
+            *   *觸發測試（Trigger Test）*：撰寫 3 種不同語意說法的 
+Prompt，驗證技能是否皆能可靠觸發 [4]。
+            *   *防誤觸測試（False-Trigger Test）*：撰寫 2 
+種領域相近但不應觸發的 Prompt，驗證邊界用語是否成功阻擋誤觸 [4]。
+        3.  **實例修改**（例如編寫 `explain-error` 或 `api-doc` 技能的 
+`SKILL.md`）：
+            *   **檔案路徑**：`~/.claude/skills/explain-error/SKILL.md` [3]。
+            *   **Description 重點**：
+                ```yaml
+                description: Explains a given error message or stack trace and 
+proposes the most likely cause and a concrete next debugging step. Use whenever 
+the user pastes an error, stack trace, traceback, exception, or compiler output 
+and asks "what is this," "why is this happening," "how do I fix this," or 
+otherwise indicates they want help interpreting an error. Do not use this skill 
+for general "my code is broken" requests where no error message is present; in 
+those cases, ask the user for the error first.
+                ```
+    *   **CLI 指令**：
+        *   開啟終端機並執行 `claude`。
+        *   **語意故障診斷（Diagnostic Prompt）**：若技能未觸發，於 Session 
+中直接輸入：`why did the <skill-name> skill not fire on my last request?`，利用 
+Claude 分析描述檔與輸入提示之間的語意差距 [5]。
+*   **(b) 範例專案或 GitHub 網址**：**無** [6]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Terminal 終端機、文字編輯器 
+[6, 7]。
+
+---
+
+### 📖 第 7 章：多檔案技能與打包資源（Multi-File Skills and Bundled Resources）
+
+*   **(a) 操作步驟與指令**：
+    *   **核心操作/步驟**：
+        1.  **建立多檔案技能的三大標準子目錄**：
+            *   `scripts/`：存放確定性執行的 Python 或 Shell 腳本 [8, 9]。
+            *   `references/`：存放詳細 Markdown 規範文件，供 Claude 
+按需讀取（漸進揭露）[8, 10]。
+            *   `assets/`：存放輸出時所需的代碼模板或固定檔案 [8, 9]。
+        2.  **建置 React 組件腳手架技能（`scaffold-react`）**：
+            *   建立結構目錄並新增檔案 [11]：
+                *   `SKILL.md`（控制主流程，長度保持在 40–50 行）[11, 12]。
+                *   `references/component-conventions.md`（存放團隊 React 
+命名與測試規範）[11, 12]。
+                *   `assets/component.template.tsx`（組件模板）[11]。
+                *   `assets/test.template.tsx`（測試模板）[11]。
+                *   `assets/story.template.tsx`（Storybook 模板）[11]。
+                *   `assets/index.template.ts`（匯出檔模板）[11]。
+        3.  **執行紙張列印測試（Printout Test）**：列印或閱讀 
+`SKILL.md`，若主體過長或細節繁雜，即將細節抽離至 `references/` 或 `scripts/` 
+[13, 14]。
+    *   **CLI 指令**：
+        ```bash
+        mkdir -p ~/.claude/skills/scaffold-react/{references,assets,scripts}
+        # 建立並填寫各子目錄檔案後重啟 claude
+        ```
+*   **(b) 範例專案或 GitHub 網址**：**無** [15]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Node.js / React 
+開發環境（用於驗證生成的模板組件）[11, 15]。
+
+---
+
+### 📖 第 8 章：技能組合與衝突應對（Skill Composition and Collision: When Skills
+Work Together）
+
+*   **(a) 操作步驟與指令**：
+    *   **核心操作/步驟**：
+        1.  **實施技能庫季度審查流程（Skill Audit Procedure）**：檢視所有技能的 
+description，診斷並修復三種衝突模式：
+            *   *Overlapping Topic（主題重疊）*：於 `pr-description` 與 
+`pr-review` 的描述中加入互斥的邊界用語 [16, 17]。
+            *   *Mismatched Specificity（範圍模糊）*：解構過於寬鬆的技能（如 
+`code-quality`），或劃分 `code-explain`（單一函數/檔案）與 
+`explain-codebase`（整個倉庫）的規模邊界 [16, 18]。
+            *   *Naming Drift（詞彙偏離）*：調整 Description 詞彙使之包含 Body 
+最常出現的 10 個核心關鍵字 [19]。
+        2.  **實作三種組合模式（Composition Patterns）**：
+            *   *順序組合（Sequential）*：在 `refactor-helper` 
+末尾加入接棒提示（Handoff hint）以接續觸發 `commit-message` [19, 20]。
+            *   
+*平行組合（Parallel）*：設計產出獨立區塊報告的技能（如安全與效能審查），供主 
+Session 彙整 [20]。
+            *   *中介技能（Meta-Skill）*：建立如 `release-prep` 技能，於 Body 
+中調用 `changelog-generator` 與 `version-bump` [20]。
+        3.  **設定團隊共享規範**：於專案 `.claude/skills/README.md` 
+寫入團隊技能開發風格指引 [21]。
+    *   **CLI 指令**：開啟 `claude` 輸入複合需求（如：「重構此函數並生成 commit 
+message」），觀察技能自動接棒執行 [19]。
+*   **(b) 範例專案或 GitHub 網址**：**無** [22]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Git 專案倉庫 [21, 22]。
+
+---
+
+### 📖 第 9 章：打造個人技能圖書館：必備的 10 個核心技能（The Personal Skill 
+Library: Your First Ten Skills）
+
+*   **(a) 操作步驟與指令**：
+    *   **核心操作/步驟**：
+        在全域目錄 `~/.claude/skills/` 下，建立 10 個核心技能資料夾並寫入 
+`SKILL.md` [23, 24]：
+        1.  `commit-message`：自動根據 staged 變更生成 conventional commit 訊息 
+[24]。
+        2.  `pr-description`：生成包含 Summary, What changed, Testing, Risk 的 
+PR 說明 [24, 25]。
+        3.  `humanize-text`：潤飾機器感或僵硬的文字（限制工具 `allowed-tools: 
+Read`）[25]。
+        4.  `refactor-readability`：在不改變邏輯前提下重構程式碼可讀性，並列出 3
+個改善點 [26]。
+        5.  `jest-test`：自動偵測 Jest/Vitest 並生成包含測試案例的完整測試檔 
+[26]。
+        6.  `pr-review`：輸出包含問題、建議、疑問與結論的結構化 PR 審查 [26, 
+27]。
+        7.  `code-explain`：以同事視角深入解釋特定代碼塊（限制工具 
+`allowed-tools: Read`）[27, 28]。
+        8.  `bug-report`：將非正式問題敘述轉為標準化 Bug 報告 [28]。
+        9.  `decision-log`：將討論轉化為架構決策紀錄（ADR）格式 [29]。
+        10. `changelog-entry`：根據變更撰寫單行 `CHANGELOG.md` 條目 [29]。
+    *   **CLI 指令**：
+        ```bash
+        mkdir -p 
+~/.claude/skills/{commit-message,pr-description,humanize-text,refactor-readabili
+ty,jest-test,pr-review,code-explain,bug-report,decision-log,changelog-entry}
+        # 於各目錄建立 SKILL.md 並貼入內容後重啟 claude
+        ```
+*   **(b) 範例專案或 GitHub 網址**：**無** [23]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Git 版本控制系統、Jest/Vitest
+測試環境（選配）[23, 26]。
+
+---
+
+### 📖 第 10 章：子代理基礎：為什麼單一執行緒不夠（Subagents Fundamentals: Why 
+Single-Threaded Claude Isn't Enough）
+
+*   **(a) 操作步驟與指令**：
+    *   **核心操作/步驟**：
+        1.  **理解子代理三大核心機制**：上下文隔離（Context 
+Isolation）、專長化（Specialization）、平行處理（Parallelism）[30, 31]。
+        2.  **建置第一個子代理 `code-reviewer`**：
+            *   建立 Markdown 檔於全域 `~/.claude/agents/code-reviewer.md` 
+或專案層級 `.claude/agents/code-reviewer.md` [31]。
+            *   **Frontmatter 設定重點**：
+                ```yaml
+                ---
+                name: code-reviewer
+                description: Reviews code for quality and best practices. Use 
+proactively after code changes.
+                tools: Read, Grep, Glob
+                model: sonnet
+                ---
+                ```
+            *   **Body（System 
+Prompt）重點**：定義高階審查員身份，要求精準標註檔名與行號，並維持簡短精闢的輸出
+[31]。
+        3.  **兩種觸發模式**：
+            *   *自動委派（Automatic Delegation）*：自然語言提問（如：「審查此 
+PR」），主 Session 自動派發 [32]。
+            *   *顯式調用（Explicit Invocation）*：於對話中直接輸入 
+`@code-reviewer` 派發任務 [32]。
+    *   **CLI 指令**：
+        ```bash
+        mkdir -p ~/.claude/agents
+        # 建立 code-reviewer.md 檔案
+        ```
+        開啟 `claude` 並輸入 `@code-reviewer review the current branch` 
+進行手動觸發測試 [32]。
+*   **(b) 範例專案或 GitHub 網址**：**無** [33]。
+*   **(c) 需要的外部環境或帳號**：Claude Code CLI、Terminal 終端機、文字編輯器 
+[31, 33]。
+
+---
+
+💡 想繼續了解 **第 11 章至第 14 章**（子代理角色限制、平行 Orchestrator 模式、8 
+位 Git 專家庫與 Subagent+Skill 組合模式）的實作步驟嗎？
+
+Resumed conversation: bc76f9d4-aa14-4e6a-ab8f-1138886816a2
