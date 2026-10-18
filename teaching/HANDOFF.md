@@ -15,3 +15,4 @@
 | 05 | 2026-10-18 | 4 分 | commit-message／slack-update 放專案層；subject 依全域規則改繁中；測試子 session 被全域 Stop hook 觸發自行 commit |
 | 06 | 2026-10-18 | 14 分 | 四段式 description 經 3 版迭代（v1 Not for 蓋掉 When）；用 stream-json 判觸發；全域上百 skill 競爭比書上嚴苛；耗時超出預估 |
 | 07 | 2026-10-18 | 3 分 | scaffold-react 多檔案 skill 放專案層；未裝 React，以 node -e 檢查四檔齊全；實測未讀 references（漸進式揭露生效） |
+| 08 | 2026-10-18 | 5 分 | 重建 skill 並劃清 pr-review／pr-description 邊界、refactor-helper 接棒、meta-skill release-prep；只實測兩個衝突 prompt |
