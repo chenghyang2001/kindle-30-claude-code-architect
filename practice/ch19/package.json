@@ -1,0 +1,9 @@
+{
+  "name": "k30-ch19-practice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "《Claude Code Architect》第 19 章三支柱整合演練",
+  "scripts": {
+    "test": "node --test"
+  }
+}

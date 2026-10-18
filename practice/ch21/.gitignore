@@ -1,0 +1,4 @@
+logs/
+*.stackdump
+.claude/settings.local.json
+.claude/session-state.md

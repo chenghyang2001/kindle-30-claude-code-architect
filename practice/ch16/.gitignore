@@ -1,0 +1,2 @@
+# hook 執行時產生的 log
+.claude/hooks/*.log

@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+*.stackdump
+core
+*.core
+*.dmp
+node_modules/
+.claude/session-state.md

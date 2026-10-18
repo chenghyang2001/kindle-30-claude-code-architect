@@ -1,0 +1,30 @@
+total 3030
+drwxr-xr-x 1 user 197121       0 Oct 18 11:42 .
+drwxr-xr-x 1 user 197121       0 Oct 18 11:42 ..
+-rw-r--r-- 1 user 197121      24 Oct 17 13:35 .last_inuse_sweep
+drwxr-xr-x 1 user 197121       0 Oct  2 16:06 .trash
+-rw-r--r-- 1 user 197121     414 Apr  1  2026 blocklist.json
+drwxr-xr-x 1 user 197121       0 Oct 18 04:45 cache
+drwxr-xr-x 1 user 197121       0 Oct 18 04:44 data
+-rw-r--r-- 1 user 197121    8469 Oct 18 04:44 installed_plugins.json
+-rw-r--r-- 1 user 197121    1543 Oct 18 11:34 known_marketplaces.json
+drwxr-xr-x 1 user 197121       0 Oct 18 07:15 marketplaces
+-rw-r--r-- 1 user 197121  366522 Jun 22 04:14 plugin-catalog-cache.json
+-rw-r--r-- 1 user 197121 2649343 Oct 18 11:04 plugin-directory-cache-v2.json
+drwxr-xr-x 1 user 197121       0 Oct  1 05:31 store
+drwxr-xr-x 1 user 197121       0 Sep 17 02:33 synced
+~/.claude/plugins/cache:
+claude-code-plugins
+claude-plugins-official
+openai-codex
+superpowers-marketplace
+voicemode
+
+~/.claude/plugins/marketplaces:
+claude-code-plugins
+claude-plugins-official
+claude-plugins-official.bak
+openai-codex
+superpowers-marketplace
+trailofbits
+voicemode

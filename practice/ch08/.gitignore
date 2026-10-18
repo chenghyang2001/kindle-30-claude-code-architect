@@ -1,0 +1,6 @@
+# 全域 Stop hook 自動產生的狀態快照
+.claude/session-state.md
+*.stackdump
+core
+*.core
+*.dmp

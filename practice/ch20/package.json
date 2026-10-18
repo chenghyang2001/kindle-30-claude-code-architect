@@ -1,0 +1,14 @@
+{
+  "name": "k30-ch20-todo-api",
+  "version": "1.0.0",
+  "description": "第 20 章全棧案例：零依賴 TypeScript 待辦事項 API",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node src/server.ts",
+    "test": "node --test \"test/**/*.test.ts\""
+  }
+}

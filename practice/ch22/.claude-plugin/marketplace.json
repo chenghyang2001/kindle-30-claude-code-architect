@@ -1,0 +1,13 @@
+{
+  "name": "k30-local",
+  "owner": { "name": "ChengHsien Yang" },
+  "metadata": { "description": "K30 第 22 章本機 marketplace 演練", "version": "0.1.0" },
+  "plugins": [
+    {
+      "name": "k30-toolkit",
+      "source": "./plugins/k30-toolkit",
+      "description": "commit-message / code-review skill、security-auditor agent、擋 .env hook",
+      "version": "0.1.0"
+    }
+  ]
+}

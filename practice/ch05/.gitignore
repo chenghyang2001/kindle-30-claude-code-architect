@@ -1,0 +1,3 @@
+.claude/session-state.md
+*.stackdump
+__pycache__/

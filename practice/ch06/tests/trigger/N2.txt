@@ -1,0 +1,3 @@
+幫我在這個函式加上完整的錯誤處理（try/except）：
+def load(path):
+    return open(path).read()

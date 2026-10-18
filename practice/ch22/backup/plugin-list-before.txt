@@ -1,0 +1,154 @@
+Installed plugins:
+
+  ❯ agent-sdk-dev@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ claude-code-setup@claude-plugins-official
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ claude-md-management@claude-plugins-official
+    Version: 1.0.0
+    Scope: user
+    Status: ✔ enabled
+
+  ❯ claude-opus-4-5-migration@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ code-review@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ codex@openai-codex
+    Version: 1.0.2
+    Scope: user
+    Status: ✔ enabled
+
+  ❯ commit-commands@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ explanatory-output-style@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ feature-dev@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ frontend-design@claude-code-plugins
+    Version: 1.1.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ frontend-design@claude-plugins-official
+    Version: ea10b213686c
+    Scope: user
+    Status: ✔ enabled
+
+  ❯ hookify@claude-code-plugins
+    Version: 0.1.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ learning-output-style@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ plugin-dev@claude-code-plugins
+    Version: 0.1.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ pr-review-toolkit@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ pyright-lsp@claude-plugins-official
+    Version: 1.0.0
+    Scope: user
+    Status: ✔ enabled
+
+  ❯ ralph-wiggum@claude-code-plugins
+    Version: 1.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ security-guidance@claude-code-plugins
+    Version: 2.0.0
+    Scope: user
+    Status: ✘ disabled
+
+  ❯ superpowers@superpowers-marketplace
+    Version: 4.3.1
+    Scope: user
+    Status: ✔ enabled
+
+  ❯ telegram@claude-plugins-official
+    Version: 0.0.7
+    Scope: user
+    Status: ✔ enabled
+
+  ❯ voicemode@voicemode
+    Version: 8.5.0p0
+    Scope: user
+    Status: ✘ disabled
+
+Synced from claude.ai:
+
+  ❯ engineering@synced
+    Version: 1.2.0
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\engineering
+    Status: ✘ disabled
+
+  ❯ pdf-viewer@synced
+    Version: 0.2.0
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\pdf-viewer~g2
+    Status: ✘ disabled
+
+  ❯ productivity@synced
+    Version: 1.3.1
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\productivity
+    Status: ✘ disabled
+
+  ❯ design@synced
+    Version: 1.2.0
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\design
+    Status: ✘ disabled
+
+  ❯ finance@synced
+    Version: 1.3.0
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\finance
+    Status: ✘ disabled
+
+  ❯ cowork-plugin-management@synced
+    Version: 0.2.2
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\cowork-plugin-management
+    Status: ✘ disabled
+
+  ❯ enterprise-search@synced
+    Version: 1.3.0
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\enterprise-search
+    Status: ✘ disabled
+
+  ❯ data@synced
+    Version: 1.1.0
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\data~g2
+    Status: ✘ disabled
+
+  ❯ small-business@synced
+    Version: 1.35.1
+    Path: ~\.claude\plugins\synced\a0bb6ede-c645-4eec-b4b3-54236e7f79e5_e5ab95ce-6aff-42fb-90b7-27ee18908056\small-business
+    Status: ✘ disabled
+

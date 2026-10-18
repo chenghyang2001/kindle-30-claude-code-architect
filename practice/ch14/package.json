@@ -1,0 +1,9 @@
+{
+  "name": "k30-ch14-practice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "《Claude Code Architect》第 14 章：子代理＋技能 測試組合演練",
+  "scripts": {
+    "test": "node --test"
+  }
+}

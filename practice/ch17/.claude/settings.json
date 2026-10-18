@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/block_dangerous.py\"", "timeout": 10 },
+          { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/block_force_push.py\"", "timeout": 10 },
+          { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/confirm_deploy.py\"", "timeout": 10 }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect_files.py\"", "timeout": 10 },
+          { "type": "command", "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/block_secrets.py\"", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}

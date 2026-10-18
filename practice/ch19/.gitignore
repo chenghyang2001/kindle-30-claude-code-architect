@@ -1,0 +1,8 @@
+.env
+.claude/logs/
+.claude/settings.local.json
+node_modules/
+*.stackdump
+core
+*.core
+*.dmp

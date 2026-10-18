@@ -1,0 +1,30 @@
+Configured marketplaces:
+
+  ❯ anthropic-plugin-directory
+    Source: Built in (Anthropic Directory)
+
+  ❯ voicemode
+    Source: GitHub (mbailey/voicemode)
+
+  ❯ superpowers-marketplace
+    Source: GitHub (obra/superpowers-marketplace)
+
+  ❯ trailofbits
+    Source: GitHub (trailofbits/skills)
+
+  ❯ claude-plugins-official
+    Source: GitHub (anthropics/claude-plugins-official)
+
+  ❯ openai-codex
+    Source: GitHub (openai/codex-plugin-cc)
+
+  ❯ claude-code-plugins
+    Source: GitHub (anthropics/claude-code)
+
+From claude.ai:
+
+  ❯ claudeai-my-uploads (listed as "My Uploads") — hosted on claude.ai, your uploads · not added
+    Add: claude plugin marketplace add --claudeai claudeai-my-uploads
+
+  ❯ (no CLI name) · listed as "Anthropic Directory" (browse on claude.ai)
+

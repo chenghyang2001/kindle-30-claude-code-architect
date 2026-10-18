@@ -1,0 +1,5 @@
+我的 React 頁面一打開就白畫面，console 顯示：
+TypeError: Cannot read properties of undefined (reading 'map')
+    at renderList (src/components/List.js:12:18)
+    at List (src/components/List.js:25:10)
+    at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)

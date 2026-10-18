@@ -1,0 +1,6 @@
+node_modules/
+*.stackdump
+core
+*.core
+*.dmp
+.claude/settings.local.json

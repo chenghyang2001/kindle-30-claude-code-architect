@@ -1,0 +1,8 @@
+# 機密：.env 不入版控（本練習的 .env 只是假內容，但照慣例排除）
+.env
+.env.*
+__pycache__/
+*.stackdump
+core
+*.core
+*.dmp

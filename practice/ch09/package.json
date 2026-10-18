@@ -1,0 +1,6 @@
+{
+  "name": "k30-ch09-cart",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "scripts": { "test": "node --test" }
+}

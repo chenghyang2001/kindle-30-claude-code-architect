@@ -1,0 +1,7 @@
+{
+  "name": "vulnerable-sample",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": { "test": "node --test" },
+  "dependencies": { "express": "^4.19.2", "mysql": "^2.18.1" }
+}

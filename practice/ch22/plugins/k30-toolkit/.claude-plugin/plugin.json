@@ -1,0 +1,8 @@
+{
+  "name": "k30-toolkit",
+  "version": "0.1.0",
+  "description": "K30 第 22 章演練用工具包：commit 訊息與 code review 兩個 skill、security-auditor agent、擋 .env 的 PreToolUse hook",
+  "author": { "name": "ChengHsien Yang" },
+  "license": "MIT",
+  "keywords": ["demo", "commit", "review", "security"]
+}

@@ -1,0 +1,9 @@
+11:19:14.079 079f170a-4e65-4a09-ae29-18168a57fb9d SessionStart session-start
+11:19:16.681 079f170a-4e65-4a09-ae29-18168a57fb9d UserPromptSubmit prompt-submit
+11:19:19.635 079f170a-4e65-4a09-ae29-18168a57fb9d PreToolUse pre-tool Write
+11:19:20.015 079f170a-4e65-4a09-ae29-18168a57fb9d PostToolUse post-tool Write
+11:19:23.728 079f170a-4e65-4a09-ae29-18168a57fb9d Stop stop
+11:19:25.188 efab14ec-e030-47ef-8500-495d9928935e PostToolUse post-tool Bash
+11:19:49.677 efab14ec-e030-47ef-8500-495d9928935e PreToolUse pre-tool Bash
+11:19:51.201 efab14ec-e030-47ef-8500-495d9928935e PostToolUse post-tool Bash
+11:19:59.174 efab14ec-e030-47ef-8500-495d9928935e Stop stop
