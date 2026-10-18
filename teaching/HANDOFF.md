@@ -21,3 +21,4 @@
 | 11 | 2026-10-18 | 3 分 | 三個最小權限 agent 放專案層；只實測 security-auditor；「只寫 docs/」等細限制 tools 欄做不到，只靠提示詞 |
 | 12 | 2026-10-18 | 6 分 | 三子代理同回合平行派出並彙整 27 項；子代理背景執行完才通知（書上無此描述）；中途停一次需催促 |
 | 13 | 2026-10-18 | 6 分 | 8 位專家 agent 放專案層；只派 debugger、test-writer 兩位實測（抓到 2 bug，修後 12/12 通過） |
+| 14 | 2026-10-18 | 4 分 | test-writer agent＋jest-test skill（skills: 欄位實測有效）；執行改用 node:test 不裝 jest；33/33 通過 |
