@@ -17,3 +17,4 @@
 | 07 | 2026-10-18 | 3 分 | scaffold-react 多檔案 skill 放專案層；未裝 React，以 node -e 檢查四檔齊全；實測未讀 references（漸進式揭露生效） |
 | 08 | 2026-10-18 | 5 分 | 重建 skill 並劃清 pr-review／pr-description 邊界、refactor-helper 接棒、meta-skill release-prep；只實測兩個衝突 prompt |
 | 09 | 2026-10-18 | 6 分 | 10 個 skill 放專案層；只實測 3 個（皆點名觸發，未測自動選中）；測試改用 node:test |
+| 10 | 2026-10-18 | 3 分 | code-reviewer agent 放專案層，蓋過同名全域 agent；工具名 Task→Agent；輸出格式被主 session 派工 prompt 蓋過 |
