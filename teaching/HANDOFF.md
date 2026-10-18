@@ -30,3 +30,10 @@
 | 20 | 2026-10-18 | 8 分 | 零依賴 Node API（非 Express/Jest）；claude -p 用 api-endpoint skill 新增 PATCH＋測試，npm test 全綠；hook 用 Node；settings.local.json 被全域 gitignore 需 -f |
 | 21 | 2026-10-18 | 5 分 | 書上放全域的一人公司技能庫與 hooks 改放專案層；SOLO-SETUP.md 只寫搬全域步驟不實搬；實測 2 個 skill |
 | 22 | 2026-10-18 | 6 分 | 本機 plugin＋marketplace，--scope project 安裝後移除；CLI 仍寫全域 plugins 清單（已自動清掉）與 cache/k30-local（教練手動刪除）；.env hook 被全域 deny 規則先攔 |
+
+## 快速模式總結（2026-10-18）
+
+- 22 章全部完成，總耗時約 2 小時（09:41–11:49），全程未修改全域 `~/.claude/settings.json`。
+- 重要發現：`allowed-tools` 不會阻止其他工具（ch04）；同一事件的多個 hook 平行執行而非依序（ch18）；`claude plugin install --scope project` 仍會寫入全域 `~/.claude/plugins/`（ch22，快取已手動清除）。
+- isolated 章（15–18）啟動時會跳「允許外部 import」對話框，教練選預設 No（排除全域 instructions）；ch17 一次因信任對話框誤送，重開後正常。
+- 測試子 session 會載入全域 hooks（Stop hook 自動 commit、session-state.md），各章已用 .gitignore 或不 commit 處理。
