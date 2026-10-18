@@ -16,3 +16,4 @@
 | 06 | 2026-10-18 | 14 分 | 四段式 description 經 3 版迭代（v1 Not for 蓋掉 When）；用 stream-json 判觸發；全域上百 skill 競爭比書上嚴苛；耗時超出預估 |
 | 07 | 2026-10-18 | 3 分 | scaffold-react 多檔案 skill 放專案層；未裝 React，以 node -e 檢查四檔齊全；實測未讀 references（漸進式揭露生效） |
 | 08 | 2026-10-18 | 5 分 | 重建 skill 並劃清 pr-review／pr-description 邊界、refactor-helper 接棒、meta-skill release-prep；只實測兩個衝突 prompt |
+| 09 | 2026-10-18 | 6 分 | 10 個 skill 放專案層；只實測 3 個（皆點名觸發，未測自動選中）；測試改用 node:test |
