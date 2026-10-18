@@ -27,3 +27,4 @@
 | 17 | 2026-10-18 | 6 分 | isolated；五支安全 hook＋單元測試表；claude -p 第一輪 rm -rf 規則漏擋（引號），修正後擋下；hook 擋到練習 session 自己 |
 | 18 | 2026-10-18 | 2 分 | isolated；跨事件順序符合；同事件 3 個 hook 實測為平行（非書上「鏈」的依序），要依序需合成單一 hook |
 | 19 | 2026-10-18 | 7 分 | 完整專案層 .claude/；一次 claude -p 串起 agent→skill→skill，hook 全程參與（16 次 Pre、2 次 Post）；test-runner 未被派用 |
+| 20 | 2026-10-18 | 8 分 | 零依賴 Node API（非 Express/Jest）；claude -p 用 api-endpoint skill 新增 PATCH＋測試，npm test 全綠；hook 用 Node；settings.local.json 被全域 gitignore 需 -f |
