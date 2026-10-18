@@ -23,3 +23,4 @@
 | 13 | 2026-10-18 | 6 分 | 8 位專家 agent 放專案層；只派 debugger、test-writer 兩位實測（抓到 2 bug，修後 12/12 通過） |
 | 14 | 2026-10-18 | 4 分 | test-writer agent＋jest-test skill（skills: 欄位實測有效）；執行改用 node:test 不裝 jest；33/33 通過 |
 | 15 | 2026-10-18 | 4 分 | isolated；hook 改用 python（Windows 無 jq）；格式化用 ruff/prettier；.env 只擋 Read/Write/Edit，Bash cat 仍可讀 |
+| 16 | 2026-10-18 | 7 分 | isolated；Gate/Guard/Pipeline/async 四種都實測（async 晚 3 秒寫完不阻塞）；hook 改用 Node；Guard 擋到練習 session 自己 |
