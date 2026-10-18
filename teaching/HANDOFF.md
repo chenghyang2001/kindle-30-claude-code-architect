@@ -29,3 +29,4 @@
 | 19 | 2026-10-18 | 7 分 | 完整專案層 .claude/；一次 claude -p 串起 agent→skill→skill，hook 全程參與（16 次 Pre、2 次 Post）；test-runner 未被派用 |
 | 20 | 2026-10-18 | 8 分 | 零依賴 Node API（非 Express/Jest）；claude -p 用 api-endpoint skill 新增 PATCH＋測試，npm test 全綠；hook 用 Node；settings.local.json 被全域 gitignore 需 -f |
 | 21 | 2026-10-18 | 5 分 | 書上放全域的一人公司技能庫與 hooks 改放專案層；SOLO-SETUP.md 只寫搬全域步驟不實搬；實測 2 個 skill |
+| 22 | 2026-10-18 | 6 分 | 本機 plugin＋marketplace，--scope project 安裝後移除；CLI 仍寫全域 plugins 清單（已自動清掉）與 cache/k30-local（教練手動刪除）；.env hook 被全域 deny 規則先攔 |
