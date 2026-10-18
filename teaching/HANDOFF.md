@@ -25,3 +25,4 @@
 | 15 | 2026-10-18 | 4 分 | isolated；hook 改用 python（Windows 無 jq）；格式化用 ruff/prettier；.env 只擋 Read/Write/Edit，Bash cat 仍可讀 |
 | 16 | 2026-10-18 | 7 分 | isolated；Gate/Guard/Pipeline/async 四種都實測（async 晚 3 秒寫完不阻塞）；hook 改用 Node；Guard 擋到練習 session 自己 |
 | 17 | 2026-10-18 | 6 分 | isolated；五支安全 hook＋單元測試表；claude -p 第一輪 rm -rf 規則漏擋（引號），修正後擋下；hook 擋到練習 session 自己 |
+| 18 | 2026-10-18 | 2 分 | isolated；跨事件順序符合；同事件 3 個 hook 實測為平行（非書上「鏈」的依序），要依序需合成單一 hook |
